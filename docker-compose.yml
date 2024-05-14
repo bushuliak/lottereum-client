@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    node:
+        image: node:22
+        container_name: lottereum-client
+        volumes:
+            - ./app:/app
+            - ./logs:/root/.npm/_logs
+        ports:
+            - '3000:3000'
+        working_dir: /app
+        restart: always
+        tty: true
