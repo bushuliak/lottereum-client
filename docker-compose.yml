@@ -10,5 +10,6 @@ services:
         ports:
             - '3000:3000'
         working_dir: /app
-        command: bash -c "npm install && npm start"
+#        command: bash -c "npm install && npm start"
         restart: always
+        tty: true

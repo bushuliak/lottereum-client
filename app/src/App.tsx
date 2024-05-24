@@ -1,18 +1,20 @@
-import React from 'react';
-import {Provider} from 'react-redux';
+import {JSX} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Home from '@/pages/Home';
-import store from '@/app/store';
+import {Web3Provider} from '@/providers';
+import {About, Contact, Home, NotFound} from '@/pages';
 
-export const App = (): React.JSX.Element => {
+export const App = (): JSX.Element => {
     return (
-        <Provider store={store}>
+        <Web3Provider>
             <BrowserRouter>
                 <Routes>
+                    <Route path='/about' element={<About/>}/>
+                    <Route path='/contact' element={<Contact/>}/>
                     <Route path='/' element={<Home/>}/>
+                    <Route path='*' element={<NotFound/>}/>
                 </Routes>
             </BrowserRouter>
-        </Provider>
+        </Web3Provider>
     );
 };
 
