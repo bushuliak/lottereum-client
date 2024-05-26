@@ -1,11 +1,13 @@
 import {JSX} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {SnackbarProvider} from 'notistack';
 import {Web3Provider} from '@/providers';
 import {About, Contact, Home, NotFound} from '@/pages';
 
 export const App = (): JSX.Element => {
     return (
         <Web3Provider>
+            <SnackbarProvider/>
             <BrowserRouter>
                 <Routes>
                     <Route path='/about' element={<About/>}/>

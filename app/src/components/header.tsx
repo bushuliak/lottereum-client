@@ -43,7 +43,7 @@ export const Header = (): JSX.Element => {
                         </Box>
                         <Box sx={{display: 'flex', flexGrow: 1}}>
                             {signer && accounts.length ? (
-                                <Tooltip title={accounts.map(account => account.address).join(', ')}>
+                                <Tooltip title={accounts.join(', ')}>
                                     <Typography color="inherit" sx={{ml: 'auto'}}>
                                         {signer.address}
                                     </Typography>
