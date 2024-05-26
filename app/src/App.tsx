@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {JSX} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {SnackbarProvider} from 'notistack';
+import {Web3Provider} from '@/providers';
+import {About, Contact, Home, NotFound} from '@/pages';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App = (): JSX.Element => {
+    return (
+        <Web3Provider>
+            <SnackbarProvider/>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/about' element={<About/>}/>
+                    <Route path='/contact' element={<Contact/>}/>
+                    <Route path='/' element={<Home/>}/>
+                    <Route path='*' element={<NotFound/>}/>
+                </Routes>
+            </BrowserRouter>
+        </Web3Provider>
+    );
+};
 
 export default App;
